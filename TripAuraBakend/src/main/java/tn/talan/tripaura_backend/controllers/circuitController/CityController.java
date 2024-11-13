@@ -19,7 +19,7 @@ public class CityController {
 
 
     @PostMapping("/{countryId}")
-    public ResponseEntity<City> addCity(@RequestBody City city, @RequestParam String countryId) {
+    public ResponseEntity<City> addCity(@RequestBody City city, @PathVariable String countryId) {
         try {
             City createdCity = cityService.addCity(city, countryId);
             return new ResponseEntity<>(createdCity, HttpStatus.CREATED);

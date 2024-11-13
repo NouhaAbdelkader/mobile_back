@@ -16,7 +16,7 @@ import java.util.List;
 
 @Document(collection = "Country")
 public class Country {
-@Id
+@Id()
     private String id;
     @Indexed
 

@@ -1,5 +1,6 @@
 package tn.talan.tripaura_backend.controllers.circuitController;
 
+import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -17,7 +18,7 @@ import java.util.List;
 public class CountryController {
     private CountryService countryService;
 
-    @PostMapping
+    @PostMapping("/add")
     public ResponseEntity<Country> addCountry(@RequestBody Country country) {
         try {
             Country createdCountry = countryService.addCountry(country);
@@ -37,4 +38,11 @@ public class CountryController {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
+    @Operation(description = "delete country")
+    @DeleteMapping("/delete/{id}")
+    public void deleteCountry(@PathVariable String id) {
+        countryService.deleteCountry(id);
+    }
+
 }

@@ -2,7 +2,9 @@ package tn.talan.tripaura_backend.services.CircuitService;
 
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
+import tn.talan.tripaura_backend.entities.Circuit.Circuit;
 import tn.talan.tripaura_backend.entities.Circuit.Country;
+import tn.talan.tripaura_backend.entities.Circuit.Programme;
 import tn.talan.tripaura_backend.repositories.Circuit.CountryRepo;
 
 import java.util.List;
@@ -19,5 +21,12 @@ public class CountryImpl implements  CountryService{
     @Override
     public List<Country> getAllCountry() {
         return countryRepo.findAll();
+    }
+
+    @Override
+    public void deleteCountry(String id) {
+        Country country = countryRepo.findCountryById(id);
+
+        countryRepo.delete(country);
     }
 }

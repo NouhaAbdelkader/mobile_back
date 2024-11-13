@@ -2,7 +2,10 @@ package tn.talan.tripaura_backend.services.activities;
 
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
+import tn.talan.tripaura_backend.entities.Flights.Flight;
+import tn.talan.tripaura_backend.entities.Flights.FlightClass;
 import tn.talan.tripaura_backend.entities.activities.ActivityTripAura;
+import tn.talan.tripaura_backend.entities.activities.TypeActivity;
 import tn.talan.tripaura_backend.exceptions.CustomException;
 import tn.talan.tripaura_backend.repositories.activities.ActivityTripAuraRepo;
 import java.util.List;
@@ -57,6 +60,11 @@ public class ActivityTripAuraImpl implements ActivityTripAuraService {
         throw new CustomException("There is no activity trip aura with that ID");
     }
     }
+    public List<ActivityTripAura> getActivitiesByType(TypeActivity typeActivity) {
+        return activityTripAuraRepo.findByTypeActivity(typeActivity);
+    }
+
+
 
 
 

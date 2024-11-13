@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import tn.talan.tripaura_backend.entities.activities.ActivityTripAura;
+import tn.talan.tripaura_backend.entities.activities.TypeActivity;
 import tn.talan.tripaura_backend.exceptions.CustomException;
 import tn.talan.tripaura_backend.repositories.activities.ActivityTripAuraRepo;
 import tn.talan.tripaura_backend.services.activities.ActivityTripAuraImpl;
@@ -58,10 +59,17 @@ public class ActivityTripAuraController {
     public void deleteActivity(@PathVariable String id) {
         activityTripAuraService.deleteActivityTripAurasById(id);
     }
+
+    @Operation(description = "gets activities by their type")
+    @GetMapping("/searchByType")
+    public List<ActivityTripAura> getActivitiesByType(@RequestParam TypeActivity typeActivity) {
+        return activityTripAuraService.getActivitiesByType(typeActivity);
+    }
     @ExceptionHandler(CustomException.class)
     public ResponseEntity<String> handleCustomException(CustomException e) {
         return new ResponseEntity<>(e.getMessage(), HttpStatus.BAD_REQUEST);
     }
+
 
 
 }

@@ -7,4 +7,5 @@ import java.util.List;
 public interface CountryService {
    public  Country addCountry(Country country);
    public List<Country> getAllCountry( );
+   public void deleteCountry(String id);
 }

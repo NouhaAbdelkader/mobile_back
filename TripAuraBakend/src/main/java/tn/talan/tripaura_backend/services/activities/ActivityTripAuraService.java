@@ -1,6 +1,8 @@
 package tn.talan.tripaura_backend.services.activities;
 
 import tn.talan.tripaura_backend.entities.activities.ActivityTripAura;
+import tn.talan.tripaura_backend.entities.activities.TypeActivity;
+
 import java.util.List;
 import java.util.Optional;
 
@@ -12,5 +14,6 @@ public interface ActivityTripAuraService {
     public ActivityTripAura addActivity(ActivityTripAura activityTripAura);
     public ActivityTripAura updateActivity(ActivityTripAura activityTripAura,String id);
     public void deleteActivityTripAurasById(String id);
+    public List<ActivityTripAura> getActivitiesByType(TypeActivity typeActivity);
 
 }
