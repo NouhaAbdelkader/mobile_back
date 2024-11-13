@@ -33,7 +33,7 @@ public class WebConfig implements WebMvcConfigurer {
         registry.addMapping("/**")
               //  .allowedOrigins("http://localhost:4200" ) // Ajoutez ici toutes les origines autorisées
                 .allowedMethods("GET", "POST", "PUT", "DELETE")
-                .allowedOrigins("http://192.168.1.14:8081")// Émulateur Android
+                .allowedOrigins("http://192.168.1.104:8081")// Émulateur Android
 
                 .allowedHeaders("*")
                 .exposedHeaders("Authorization")

@@ -34,9 +34,10 @@ public class UserTripAuraImp implements UserTripAuraService {
             throw new CustomException("there is already a user trip Aura with this email");
         }
 
-        if (userTripAuraRepo.existsUserTripAuraByNumber(userTripAura.getNumber()) || userTripAura.getNumber().length() != 8) {
-            throw new CustomException("there is already a user trip Aura with this number");
-        } else {
+        //  if (userTripAuraRepo.existsUserTripAuraByNumber(userTripAura.getNumber()) || userTripAura.getNumber().length() != 8) {
+        //    throw new CustomException("there is already a user trip Aura with this number");
+        // }
+        else {
             String encodedPassword = passwordEncoder.encode(userTripAura.getPassword());
             userTripAura.setPassword(encodedPassword);
             userTripAura.setRoles(new HashSet<>(Collections.singleton(roleType)));

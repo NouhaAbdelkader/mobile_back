@@ -62,7 +62,7 @@ public class UserTripAura implements UserDetails, Serializable{
     private String cin;
 
     @Indexed
-    @NotBlank(message = "Phone number is mandatory")
+    //@NotBlank(message = "Phone number is mandatory")
     @Pattern(regexp = "\\d{8}", message = "Phone number must be 8 digits")
     private String number;
 
@@ -84,11 +84,6 @@ public class UserTripAura implements UserDetails, Serializable{
 
     @Indexed
     private LocalDateTime loginTime; // Ajoutez ce champ pour capturer l'heure de connexion
-
-  /*  @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        return List.of();
-    }*/
 
     private String fcmToken; // Add this field to store the FCM token
 

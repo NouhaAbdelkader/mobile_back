@@ -56,7 +56,7 @@ public class WebSecurityConfig {
                                 "http://localhost:8081/swagger-ui/index.html", "http://localhost:4200/homeN",
                                 "/TripAuraUsers/Add/TRAVELER", "/auth/forgotPassword",
                                 "/Get/TripAuraActivity", "/get/TripAuraActivity/{id}", "/Get/TripAuraActivity",
-                                "/update/ActivityTripAura/{id}", "/delete/ActivityTripAura/{id}")
+                                "/update/ActivityTripAura/{id}", "/delete/ActivityTripAura/{id}","http://192.168.1.104:8081/auth/loginSuccess2")
                         .permitAll()
                        // .requestMatchers("/flights/**").hasAnyRole("FLIGHT_AGENT", "SUPER_ADMIN")
                         .requestMatchers("/airlines/**").hasAnyRole("FLIGHT_AGENT", "SUPER_ADMIN")
@@ -67,6 +67,7 @@ public class WebSecurityConfig {
                         .requestMatchers("/dashboard/users/**").hasAnyRole("ACCOUNT_AGENT", "SUPER_ADMIN")
                         .requestMatchers("/websocket/**").permitAll()
                         .requestMatchers("/TripAuraUsers/Add/**").permitAll()
+                        .requestMatchers("/auth/loginSuccess2").permitAll()
                         .requestMatchers("/qrcode/**").permitAll()
                         .anyRequest().authenticated())
 
